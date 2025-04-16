@@ -1,4 +1,3 @@
-from config.database import Database
 from models.docente  import Docente
 
 class DocenteController:
