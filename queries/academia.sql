@@ -78,3 +78,10 @@ INSERT INTO Horarios (curso_id, dia_semana, hora_inicio, hora_fin)
 VALUES (1, 'Lunes', '08:00:00', '10:00:00'),
         (1, 'Miercoles', '10:00:00', '12:00:00'),
         (2, 'Martes', '14:00:00', '16:00:00');
+
+--Consultar a cursos con el id y nombre y apellido juntos de docente 
+SELECT c.id_curso, c.nombre, c.descripcion , c.duracion_horas, d.id_docente, CONCAT(d.nombre, ' ', d.apellido) AS docente_nombre
+FROM Cursos c
+JOIN Docentes d ON c.docente_id = d.id_docente;
+
+

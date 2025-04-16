@@ -27,7 +27,7 @@ class CursoController:
         
         :return: lista de objetos Curso
         """
-        sql = """SELECT id_curso, nombre, descripcion, duracion_horas, docente_id FROM cursos"""
+        sql = """SELECT c.id_curso, c.nombre, c.descripcion , c.duracion_horas, d.id_docente, CONCAT(d.nombre, ' ', d.apellido) AS docente_nombre FROM Cursos c JOIN Docentes d ON c.docente_id = d.id_docente; """
         resultados = self.db.execute_select(sql)
         return [Curso(*resultado) for resultado in resultados]
     
@@ -38,7 +38,7 @@ class CursoController:
         :param id_curso: ID del curso
         :return: objeto Curso
         """
-        sql = """SELECT id_curso, nombre, descripcion, duracion_horas, docente_id FROM cursos WHERE id_curso = %s"""
+        sql = """SELECT c.id_curso, c.nombre, c.descripcion , c.duracion_horas, d.id_docente, CONCAT(d.nombre, ' ', d.apellido) AS docente_nombre FROM Cursos c JOIN Docentes d ON c.docente_id = d.id_docente WHERE c.id_curso = %s"""
         params = (id_curso,)
         resultado = self.db.execute_select(sql, params)
         return Curso(*resultado[0]) if resultado else None  
