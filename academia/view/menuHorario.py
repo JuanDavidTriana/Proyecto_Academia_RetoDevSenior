@@ -13,6 +13,24 @@ def menu_principal_horario(db):
         print("5. Eliminar horario")
         print("6. Salir")
 
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            registrar_horario(horario_controller)
+        elif opcion == "2":
+            listar_horarios(horario_controller)
+        elif opcion == "3":
+            obtener_horario_por_id(horario_controller)
+        elif opcion == "4":
+            actualizar_horario(horario_controller)
+        elif opcion == "5":
+            eliminar_horario(horario_controller)
+        elif opcion == "6":
+            print("Gracias por usar el sistema de gestión de horarios")
+            break
+        else:
+            print("Opción inválida. Por favor, seleccione una opción válida.")
+
 def registrar_horario(horario_controller):
     print("============Registrar Horario=============")
     dia_semana = input("Ingrese el día de la semana: ")
