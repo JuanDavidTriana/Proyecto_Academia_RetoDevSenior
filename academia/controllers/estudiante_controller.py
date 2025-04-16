@@ -26,8 +26,7 @@ class EstudianteController:
         registrados en la base de datos.
         """
         sql = """SELECT id_estudiante, nombre, apellido, correo_electronico, telefono FROM estudiantes"""
-        resultados = self.db.execute_select(sql)
-        print(resultados)   
+        resultados = self.db.execute_select(sql) 
         return [Estudiante(*resultado) for resultado in resultados]
     
     def obtener_estudiante_por_id(self, id_estudiante):

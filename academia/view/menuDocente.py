@@ -64,7 +64,6 @@ def obtener_docente_por_id(docente_controller):
     try:
         docente = docente_controller.obtener_docente_por_id(id_docente)
 
-        print(docente)
         if docente:
             print(f"ID: {docente.id_docente}")
             print(f"Nombres: {docente.nombre}")
