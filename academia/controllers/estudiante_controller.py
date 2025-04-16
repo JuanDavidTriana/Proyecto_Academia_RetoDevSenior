@@ -44,4 +44,19 @@ class EstudianteController:
         return Estudiante(*resultado[0]) if resultado else None
     
 
+    def actualizar_estudiante(self, id_estudiante, nombre, apellido, correo, telefono):
+        """
+        Actualiza los datos de un estudiante existente.
+
+        :param id_estudiante: ID del estudiante a actualizar
+        :param nombre: nuevo nombre del estudiante
+        :param apellido: nuevo apellido del estudiante
+        :param correo: nuevo correo electr nico del estudiante
+        :param telefono: nuevo tel fono del estudiante
+        """
+        sql = """
+            UPDATE estudiantes SET nombre = %s, apellido = %s, correo_electronico = %s, telefono = %s WHERE id_estudiante = %s
+        """
+        params = (nombre, apellido, correo, telefono, id_estudiante)
+        self.db.execute_query(sql, params)
 
