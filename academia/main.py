@@ -2,7 +2,7 @@ from view.menu import menu_principal
 from view.menuDocente import menu_principal_docente
 from view.menuCurso import menu_principal_curso
 from view.menuHorario import menu_principal_horario
-from academia.view.menuMatricula import menu_principal_matricula
+from view.menuMatricula import menu_principal_matricula
 from config.database import Database
 
 if __name__ == "__main__":

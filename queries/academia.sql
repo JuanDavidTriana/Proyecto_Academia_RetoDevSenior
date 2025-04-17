@@ -90,4 +90,9 @@ VALUES (1, 'Lunes', '08:00:00', '10:00:00'),
         (1, 'Miercoles', '10:00:00', '12:00:00'),
         (2, 'Martes', '14:00:00', '16:00:00');
 
+-- Insertar datos en matriculas
+INSERT INTO Matriculas (estudiante_id, curso_id, fecha_matricula)
+VALUES (2, 1, '2021-03-15'),
+        (5, 2, '2021-04-15'),
+        (6, 1, '2021-03-15');
 

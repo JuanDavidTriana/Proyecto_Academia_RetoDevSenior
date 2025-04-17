@@ -1,4 +1,4 @@
-from academia.models.matricula import Matricula
+from models.matricula import Matricula
 
 class MatriculaController:
     def __init__(self, db):
@@ -27,7 +27,8 @@ class MatriculaController:
         sql = """
             SELECT * FROM Matriculas
         """
-        return self.db.execute_query(sql)
+        resultados = self.db.execute_select(sql)
+        return [Matricula(*resultado) for resultado in resultados]
 
     def obtener_matricula_por_id(self, id_matricula):
         """
@@ -40,7 +41,8 @@ class MatriculaController:
             SELECT * FROM Matriculas WHERE id_matricula = %s
         """
         params = (id_matricula,)
-        return self.db.execute_query(sql, params)
+        resultado = self.db.execute_select(sql, params)
+        return Matricula(*resultado[0]) if resultado else None
     
     def actualizar_matricula(self, id_matricula, estudiante_id, curso_id, fecha_matricula):
         """
