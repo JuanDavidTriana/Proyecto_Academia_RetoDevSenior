@@ -1,4 +1,4 @@
-from view.menu import menu_principal
+#from view.menu import menu_principal
 from view.viewTkinter.menuPrincipal import MenuPrincipal
 from config.database import Database
 

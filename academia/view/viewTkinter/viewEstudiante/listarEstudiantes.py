@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from tkinter import ttk  # Importamos ttk para usar Treeview
+from tkinter import ttk, messagebox  # Importamos ttk para usar Treeview y messagebox para confirmación
 from controllers.estudiante_controller import EstudianteController
 from mysql.connector import IntegrityError
 
@@ -51,6 +51,7 @@ class ListarEstudiantes:
         self.tabla.column("Correo", width=200)
         self.tabla.column("Telefono", width=120)
 
+
         # Cargar los datos de la tabla
         self.cargar_datos_tabla()
 
@@ -68,4 +69,10 @@ class ListarEstudiantes:
         except IntegrityError as e:
             print(f"Error al cargar los datos: {e}")
             # Aquí podrías mostrar un mensaje de error en la interfaz si lo deseas
+
+    def regresar_menu_principal(self):
+        from view.viewTkinter.menuPrincipal import MenuPrincipal
+        self.root.destroy()
+        menu_principal = MenuPrincipal(db=self.db, tema_actual=self.tema_actual)
+        menu_principal.root.mainloop()
 

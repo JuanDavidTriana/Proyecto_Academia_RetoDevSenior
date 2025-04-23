@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from view.viewTkinter.viewEstudiante.menuEstudiante import MenuEstudiante
+from view.viewTkinter.viewDocenteFull.menuDocenteFull import MenuDocenteFull
 
 #Crear la clase principal de la ventana la cual se encargar de recibir a las demas ventanas
 class MenuPrincipal:
@@ -59,7 +60,9 @@ class MenuPrincipal:
 
     
     def abrir_ventana_docentes(self):
-        pass
+        self.root.destroy()
+        menu_docente = MenuDocenteFull(db = self.db, tema_actual = self.tema_actual)
+        menu_docente.root.mainloop()
 
     def abrir_ventana_cursos(self):
         pass

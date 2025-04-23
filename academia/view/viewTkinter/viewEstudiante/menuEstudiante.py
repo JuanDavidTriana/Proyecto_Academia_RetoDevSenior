@@ -19,7 +19,7 @@ class MenuEstudiante():
         
         #Asignar tamaño de la ventana
         ancho_ventana = int(ancho_pantalla * 0.3)
-        alto_ventana = int(alto_pantalla * 0.4)
+        alto_ventana = int(alto_pantalla * 0.45)
         self.root.geometry(f"{ancho_ventana}x{alto_ventana}")
 
         #Configuraracion de restricciones de la ventana
@@ -41,6 +41,14 @@ class MenuEstudiante():
         #Boton para registrar estudiante
         self.btn_registrar_estudiante = ctk.CTkButton(self.root, text="Registrar Estudiante", command=self.registrar_estudiante)
         self.btn_registrar_estudiante.pack(pady=10)
+
+        #Boton para actualizar estudiante
+        self.btn_actualizar_estudiante = ctk.CTkButton(self.root, text="Actualizar Estudiante", command=self.actualizar_estudiante)
+        self.btn_actualizar_estudiante.pack(pady=10)
+
+        #Boton para eliminar estudiante
+        self.btn_eliminar_estudiante = ctk.CTkButton(self.root, text="Eliminar Estudiante", command=self.eliminar_estudiante)
+        self.btn_eliminar_estudiante.pack(pady=10)
 
         #Crear un boton para regresar al menu principal
         self.btn_regresar = ctk.CTkButton(self.root, text="Regresar", command=self.regresar_menu_principal)
@@ -69,4 +77,14 @@ class MenuEstudiante():
         from view.viewTkinter.viewEstudiante.registrarEstudiante import RegistrarEstudiante
         registrar_estudiante = RegistrarEstudiante(db = self.db, tema_actual = self.tema_actual)
         registrar_estudiante.root.mainloop()
+
+    def eliminar_estudiante(self):
+        from view.viewTkinter.viewEstudiante.eliminarEstudiante import EliminarEstudiante
+        eliminar_estudiante = EliminarEstudiante(db = self.db, tema_actual = self.tema_actual)
+        eliminar_estudiante.root.mainloop()
+
+    def actualizar_estudiante(self):
+        from view.viewTkinter.viewEstudiante.actualizarEstudiante import ActualizarEstudiante
+        actualizar_estudiante = ActualizarEstudiante(db = self.db, tema_actual = self.tema_actual)
+        actualizar_estudiante.root.mainloop()
 
