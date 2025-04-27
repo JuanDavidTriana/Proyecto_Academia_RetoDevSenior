@@ -5,10 +5,11 @@ from mysql.connector.errors import IntegrityError
 class Database:
     def __init__(self):
         self.connection = mysql.connector.connect(
-            host="localhost",
+            host="shortline.proxy.rlwy.net",
             user="root",
-            passwd="admin",
-            database="academia"
+            passwd="ilfukZgGwofZzbrfjkkoJVIlqlPWtKyu",
+            database="railway",
+            port = 48870
         )
         self.cursor = self.connection.cursor()
 

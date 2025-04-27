@@ -9,7 +9,7 @@ class MenuEstudiante():
 
         #Configurar el tema de la ventana
         ctk.set_appearance_mode(tema_actual)
-
+        
         #Configuracion de cierra de ventana
         self.root.protocol("WM_DELETE_WINDOW", self.regresar_menu_principal)
 

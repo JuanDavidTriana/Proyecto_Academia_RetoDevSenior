@@ -25,7 +25,7 @@ class EstudianteController:
         Devuelve una lista de objetos Estudiante que representan a los estudiantes
         registrados en la base de datos.
         """
-        sql = """SELECT id_estudiante, nombre, apellido, correo_electronico, telefono FROM estudiantes"""
+        sql = """SELECT id_estudiante, nombre, apellido, correo_electronico, telefono FROM Estudiantes"""
         resultados = self.db.execute_select(sql) 
         return [Estudiante(*resultado) for resultado in resultados]
     
